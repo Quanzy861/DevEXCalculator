@@ -1,4 +1,9 @@
 
+/* =========================
+   ROBUX DEVEX CALCULATOR
+   WHITE & BLACK BUBBLE UI
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,29 +16,33 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #111111;
 }
+
+/* Main container */
 
 .container {
     width: 100%;
     max-width: 520px;
     padding: 32px;
-    background: #fff;
-    border: 2px solid #111;
+    background: #ffffff;
+    border: 2px solid #111111;
     border-radius: 35px;
-    box-shadow: 8px 8px 0 #111;
+    box-shadow: 8px 8px 0 #111111;
 }
+
+/* Header */
 
 .tag {
     display: inline-block;
-    padding: 10px 17px;
-    background: #111;
-    color: white;
+    padding: 10px 18px;
+    background: #111111;
+    color: #ffffff;
     border-radius: 50px;
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 800;
     letter-spacing: 1px;
 }
 
@@ -46,15 +55,18 @@ h1 {
 
 .subtitle {
     margin: 10px 0 30px;
-    color: #777;
+    color: #777777;
+    font-size: 14px;
     line-height: 1.6;
 }
+
+/* Input */
 
 label {
     display: block;
     margin-bottom: 10px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 800;
 }
 
 .input-box {
@@ -63,18 +75,18 @@ label {
     gap: 12px;
     padding: 0 18px;
     background: #f5f5f5;
-    border: 2px solid #111;
+    border: 2px solid #111111;
     border-radius: 50px;
-    transition: 0.2s;
+    transition: 0.2s ease;
 }
 
 .input-box:focus-within {
-    background: white;
-    box-shadow: 4px 4px 0 #111;
+    background: #ffffff;
+    box-shadow: 4px 4px 0 #111111;
 }
 
 .input-box span {
-    color: #111;
+    color: #111111;
     font-size: 20px;
     font-weight: 900;
 }
@@ -85,27 +97,31 @@ label {
     background: transparent;
     border: none;
     outline: none;
-    color: #111;
+    color: #111111;
     font-size: 20px;
+    font-weight: 700;
 }
+
+/* Result card */
 
 .result {
     margin-top: 25px;
     padding: 26px;
-    background: #111;
-    color: white;
+    background: #111111;
+    color: #ffffff;
     border-radius: 28px;
-    box-shadow: 5px 5px 0 #ccc;
+    box-shadow: 5px 5px 0 #cccccc;
 }
 
 .result p {
-    color: #ccc;
+    color: #cccccc;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .result h2 {
     margin: 12px 0;
+    color: #ffffff;
     font-size: 46px;
     font-weight: 900;
     letter-spacing: -1px;
@@ -117,31 +133,37 @@ label {
     justify-content: space-between;
     gap: 10px;
     margin-top: 18px;
-    color: #ccc;
+    color: #cccccc;
     font-size: 12px;
 }
+
+/* Settings */
 
 .settings {
     margin-top: 30px;
     padding-top: 25px;
-    border-top: 2px solid #eee;
+    border-top: 2px solid #eeeeee;
 }
 
 .settings input {
     width: 100%;
     padding: 15px 18px;
     background: #f5f5f5;
-    border: 2px solid #111;
+    border: 2px solid #111111;
     border-radius: 50px;
-    color: #111;
+    color: #111111;
     font-size: 16px;
+    font-weight: 700;
     outline: none;
+    transition: 0.2s ease;
 }
 
 .settings input:focus {
-    background: white;
-    box-shadow: 3px 3px 0 #111;
+    background: #ffffff;
+    box-shadow: 3px 3px 0 #111111;
 }
+
+/* Preset buttons */
 
 .presets {
     display: flex;
@@ -152,39 +174,46 @@ label {
 
 button {
     padding: 11px 18px;
-    background: white;
-    border: 2px solid #111;
+    background: #ffffff;
+    border: 2px solid #111111;
     border-radius: 50px;
-    color: #111;
-    font-weight: bold;
+    color: #111111;
+    font-size: 13px;
+    font-weight: 800;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.2s ease;
 }
 
 button:hover {
-    background: #111;
-    color: white;
+    background: #111111;
+    color: #ffffff;
     transform: translateY(-3px);
-    box-shadow: 3px 3px 0 #aaa;
+    box-shadow: 3px 3px 0 #aaaaaa;
 }
 
 button:active {
     transform: scale(0.95);
 }
 
+/* Disclaimer */
+
 .disclaimer {
     margin-top: 25px;
-    color: #777;
+    color: #777777;
     font-size: 12px;
     line-height: 1.7;
 }
 
+/* Footer */
+
 footer {
     margin-top: 25px;
-    color: #999;
+    color: #999999;
     font-size: 11px;
     text-align: center;
 }
+
+/* Mobile responsive */
 
 @media (max-width: 450px) {
     .container {
@@ -198,5 +227,9 @@ footer {
 
     .result h2 {
         font-size: 36px;
+    }
+
+    .details {
+        flex-wrap: wrap;
     }
 }

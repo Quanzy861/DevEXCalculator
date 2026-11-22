@@ -5,84 +5,249 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000">
-    <title>Roblox DevEx Calculator</title>
+
+    <title>Roblox Robux Calculator</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <main class="container">
+<main class="container">
 
-        <div class="tag">ROBLOX DEVEX</div>
+    <!-- Header -->
 
-        <h1>Robux Calculator</h1>
-        <p class="subtitle">
-            Calculate the estimated USD value of your Robux.
-            Simple, fast and easy.
-        </p>
+    <div class="tag">ROBLOX CALCULATOR</div>
 
-        <section class="calculator">
-            <label for="robux">Enter your Robux amount</label>
+    <h1>Robux Calculator</h1>
 
-            <div class="input-box">
-                <span>R$</span>
-                <input
-                    type="text"
-                    id="robux"
-                    placeholder="Example: 30K or 1M"
-                    autocomplete="off"
-                    spellcheck="false"
-                    inputmode="decimal"
-                >
-            </div>
+    <p class="subtitle">
+        Calculate your DevEx value or find out how much
+        Robux costs to purchase.
+    </p>
 
-            <div class="presets">
-                <button type="button" data-amount="1000">1K</button>
-                <button type="button" data-amount="10000">10K</button>
-                <button type="button" data-amount="30000">30K</button>
-                <button type="button" data-amount="100000">100K</button>
-                <button type="button" data-amount="1000000">1M</button>
-            </div>
-        </section>
 
-        <section class="result" aria-live="polite">
-            <p>ESTIMATED DEVEX VALUE</p>
-            <h2 id="usd">$0.00</h2>
-            <div class="details">
-                <span id="robuxText">0 Robux</span>
-                <span id="rateText">$0.0038 / Robux</span>
-            </div>
-        </section>
+    <!-- Calculator Mode Switch -->
 
-        <section class="settings">
-            <h3>Calculator Settings</h3>
-            <label for="rate">DevEx rate (USD per Robux)</label>
+    <div class="mode-switch">
+
+        <button
+            type="button"
+            class="mode-button active"
+            data-mode="devex"
+        >
+            DevEx Value
+        </button>
+
+        <button
+            type="button"
+            class="mode-button"
+            data-mode="purchase"
+        >
+            Purchase Cost
+        </button>
+
+    </div>
+
+
+    <!-- Robux Input -->
+
+    <section class="calculator">
+
+        <label for="robux">
+            Enter your Robux amount
+        </label>
+
+        <div class="input-box">
+
+            <span>R$</span>
 
             <input
-                type="number"
-                id="rate"
-                value="0.0038"
-                min="0"
-                step="0.0001"
+                type="text"
+                id="robux"
+                placeholder="Example: 30K or 1M"
+                autocomplete="off"
+                spellcheck="false"
+                inputmode="decimal"
             >
 
-            <p class="settings-note">
-                Change the rate to calculate using a different
-                DevEx rate.
-            </p>
-        </section>
+        </div>
 
-        <p class="disclaimer">
-            Disclaimer: This calculator provides an estimate only.
-            Actual DevEx payouts depend on Roblox's official
-            Developer Exchange requirements and applicable rates.
+
+        <!-- Quick Amount Buttons -->
+
+        <div class="presets">
+
+            <button type="button" data-amount="1000">
+                1K
+            </button>
+
+            <button type="button" data-amount="10000">
+                10K
+            </button>
+
+            <button type="button" data-amount="30000">
+                30K
+            </button>
+
+            <button type="button" data-amount="100000">
+                100K
+            </button>
+
+            <button type="button" data-amount="1000000">
+                1M
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- DEVEX CALCULATOR RESULT -->
+
+    <section
+        class="result"
+        id="devexResult"
+        aria-live="polite"
+    >
+
+        <p>ESTIMATED DEVEX VALUE</p>
+
+        <h2 id="devexUsd">$0.00</h2>
+
+        <div class="details">
+
+            <span id="devexRobux">
+                0 Robux
+            </span>
+
+            <span id="rateText">
+                $0.0038 / Robux
+            </span>
+
+        </div>
+
+        <p class="result-note">
+            Only eligible Earned Robux can be exchanged
+            through Roblox DevEx.
         </p>
 
-        <footer>
-            Made for Roblox creators 🖤
-        </footer>
+    </section>
 
-    </main>
 
-    <script src="script.js"></script>
+    <!-- PURCHASE CALCULATOR RESULT -->
+
+    <section
+        class="result purchase-result hidden"
+        id="purchaseResult"
+        aria-live="polite"
+    >
+
+        <p>ESTIMATED ROBUX PURCHASE COST</p>
+
+        <h2 id="purchaseUsd">$0.00</h2>
+
+        <div class="details">
+
+            <span id="purchaseRobux">
+                0 Robux
+            </span>
+
+            <span id="receivedRobux">
+                0 received
+            </span>
+
+        </div>
+
+
+        <!-- Package Breakdown -->
+
+        <div class="package-breakdown">
+
+            <h3>Cheapest package combination</h3>
+
+            <div id="packageList">
+                Enter an amount to see the packages.
+            </div>
+
+        </div>
+
+
+        <p class="result-note">
+            Based on listed US Roblox website package prices.
+            Actual prices may vary by country, platform and taxes.
+        </p>
+
+
+        <!-- Official Roblox Website -->
+
+        <a
+            class="roblox-link"
+            href="https://www.roblox.com/upgrades/robux"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            View official Roblox prices ↗
+        </a>
+
+    </section>
+
+
+    <!-- DEVEX SETTINGS -->
+
+    <section
+        class="settings"
+        id="devexSettings"
+    >
+
+        <h3>Calculator Settings</h3>
+
+        <label for="rate">
+            DevEx rate (USD per Robux)
+        </label>
+
+        <input
+            type="number"
+            id="rate"
+            value="0.0038"
+            min="0"
+            step="0.0001"
+        >
+
+        <p class="settings-note">
+            Change the rate to calculate using a different
+            DevEx rate.
+        </p>
+
+    </section>
+
+
+    <!-- Disclaimer -->
+
+    <p class="disclaimer">
+
+        Disclaimer: This calculator provides estimates only.
+        Actual DevEx payouts depend on Roblox's official
+        Developer Exchange requirements and applicable rates.
+
+        Purchase prices may differ depending on your region,
+        platform and applicable taxes.
+
+    </p>
+
+
+    <!-- Footer -->
+
+    <footer>
+        Made for Roblox creators 🖤
+    </footer>
+
+</main>
+
+
+<!-- JavaScript -->
+
+<script src="script.js"></script>
+
 </body>
 </html>

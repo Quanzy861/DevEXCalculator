@@ -1,8 +1,10 @@
 
-/* ==============================
-   ROBLOX DEVEX CALCULATOR
+/* =====================================
+   ROBLOX ROBUX CALCULATOR
    BLACK & WHITE BUBBLE DESIGN
-============================== */
+===================================== */
+
+/* Global */
 
 * {
     margin: 0;
@@ -17,8 +19,8 @@ body {
     align-items: center;
     padding: 25px;
     font-family: Arial, Helvetica, sans-serif;
-    background: #000;
-    color: #fff;
+    background: #000000;
+    color: #ffffff;
 }
 
 /* Main container */
@@ -28,9 +30,9 @@ body {
     max-width: 520px;
     padding: 32px;
     background: #080808;
-    border: 2px solid #fff;
+    border: 2px solid #ffffff;
     border-radius: 35px;
-    box-shadow: 8px 8px 0 #fff;
+    box-shadow: 8px 8px 0 #ffffff;
 }
 
 /* Header */
@@ -38,8 +40,8 @@ body {
 .tag {
     display: inline-block;
     padding: 10px 18px;
-    background: #fff;
-    color: #000;
+    background: #ffffff;
+    color: #000000;
     border-radius: 50px;
     font-size: 12px;
     font-weight: 900;
@@ -51,24 +53,65 @@ h1 {
     font-size: 36px;
     font-weight: 900;
     letter-spacing: -1.5px;
-    color: #fff;
+    color: #ffffff;
 }
 
 .subtitle {
-    margin: 10px 0 30px;
-    color: #aaa;
+    margin: 10px 0 25px;
+    color: #aaaaaa;
     font-size: 14px;
     line-height: 1.7;
 }
 
-/* Input */
+/* Mode switch */
+
+.mode-switch {
+    display: flex;
+    gap: 8px;
+    padding: 6px;
+    margin-bottom: 28px;
+    background: #171717;
+    border: 1px solid #444444;
+    border-radius: 50px;
+}
+
+.mode-button {
+    flex: 1;
+    padding: 13px 8px;
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    color: #aaaaaa;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.mode-button.active {
+    background: #ffffff;
+    color: #000000;
+}
+
+.mode-button:hover {
+    background: #dddddd;
+    color: #000000;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Input section */
+
+.calculator {
+    width: 100%;
+}
 
 label {
     display: block;
     margin-bottom: 10px;
     font-size: 14px;
     font-weight: 800;
-    color: #fff;
+    color: #ffffff;
 }
 
 .input-box {
@@ -76,19 +119,19 @@ label {
     align-items: center;
     gap: 12px;
     padding: 0 18px;
-    background: #111;
-    border: 2px solid #fff;
+    background: #111111;
+    border: 2px solid #ffffff;
     border-radius: 50px;
     transition: 0.2s ease;
 }
 
 .input-box:focus-within {
-    background: #222;
-    box-shadow: 4px 4px 0 #fff;
+    background: #222222;
+    box-shadow: 4px 4px 0 #ffffff;
 }
 
 .input-box span {
-    color: #fff;
+    color: #ffffff;
     font-size: 20px;
     font-weight: 900;
 }
@@ -100,13 +143,13 @@ label {
     background: transparent;
     border: none;
     outline: none;
-    color: #fff;
+    color: #ffffff;
     font-size: 20px;
     font-weight: 700;
 }
 
 .input-box input::placeholder {
-    color: #888;
+    color: #888888;
 }
 
 /* Preset buttons */
@@ -120,54 +163,55 @@ label {
 
 button {
     padding: 11px 18px;
-    background: #000;
-    border: 2px solid #fff;
+    background: #000000;
+    border: 2px solid #ffffff;
     border-radius: 50px;
-    color: #fff;
+    color: #ffffff;
     font-size: 13px;
     font-weight: 800;
     cursor: pointer;
     transition: 0.2s ease;
 }
 
-button:hover {
-    background: #fff;
-    color: #000;
+.presets button:hover {
+    background: #ffffff;
+    color: #000000;
     transform: translateY(-3px);
-    box-shadow: 3px 3px 0 #777;
+    box-shadow: 3px 3px 0 #777777;
 }
 
 button:active {
     transform: scale(0.95);
 }
 
-button:focus-visible {
-    outline: 2px solid #fff;
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #ffffff;
     outline-offset: 4px;
 }
 
-/* Result card */
+/* Result cards */
 
 .result {
     margin-top: 28px;
     padding: 26px;
-    background: #fff;
-    color: #000;
+    background: #ffffff;
+    color: #000000;
     border-radius: 28px;
-    box-shadow: 5px 5px 0 #555;
+    box-shadow: 5px 5px 0 #555555;
 }
 
-.result p {
-    color: #555;
-    font-size: 13px;
-    font-weight: 800;
+.result > p:first-child {
+    color: #555555;
+    font-size: 12px;
+    font-weight: 900;
     letter-spacing: 0.5px;
 }
 
 .result h2 {
     margin: 12px 0;
-    color: #000;
-    font-size: 46px;
+    color: #000000;
+    font-size: 42px;
     font-weight: 900;
     letter-spacing: -1px;
     overflow-wrap: anywhere;
@@ -179,9 +223,67 @@ button:focus-visible {
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 18px;
-    color: #555;
+    color: #555555;
     font-size: 12px;
     font-weight: 700;
+}
+
+.result-note {
+    margin-top: 20px;
+    color: #666666;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* Purchase package breakdown */
+
+.package-breakdown {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #dddddd;
+}
+
+.package-breakdown h3 {
+    margin-bottom: 12px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.package-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eeeeee;
+    color: #222222;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.package-item span:last-child {
+    white-space: nowrap;
+}
+
+.package-item:last-child {
+    border-bottom: none;
+    font-weight: 900;
+}
+
+/* Official Roblox link */
+
+.roblox-link {
+    display: inline-block;
+    margin-top: 17px;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.roblox-link:hover {
+    opacity: 0.6;
 }
 
 /* Settings */
@@ -189,11 +291,12 @@ button:focus-visible {
 .settings {
     margin-top: 30px;
     padding-top: 25px;
-    border-top: 2px solid #333;
+    border-top: 2px solid #333333;
 }
 
 .settings h3 {
     margin-bottom: 20px;
+    color: #ffffff;
     font-size: 19px;
     font-weight: 900;
 }
@@ -201,10 +304,10 @@ button:focus-visible {
 .settings input {
     width: 100%;
     padding: 15px 18px;
-    background: #111;
-    border: 2px solid #fff;
+    background: #111111;
+    border: 2px solid #ffffff;
     border-radius: 50px;
-    color: #fff;
+    color: #ffffff;
     font-size: 16px;
     font-weight: 700;
     outline: none;
@@ -212,13 +315,13 @@ button:focus-visible {
 }
 
 .settings input:focus {
-    background: #222;
-    box-shadow: 3px 3px 0 #fff;
+    background: #222222;
+    box-shadow: 3px 3px 0 #ffffff;
 }
 
 .settings-note {
     margin-top: 12px;
-    color: #999;
+    color: #999999;
     font-size: 12px;
     line-height: 1.6;
 }
@@ -227,7 +330,7 @@ button:focus-visible {
 
 .disclaimer {
     margin-top: 25px;
-    color: #999;
+    color: #999999;
     font-size: 12px;
     line-height: 1.7;
 }
@@ -236,14 +339,21 @@ button:focus-visible {
 
 footer {
     margin-top: 25px;
-    color: #777;
+    color: #777777;
     font-size: 11px;
     text-align: center;
+}
+
+/* Hide inactive sections */
+
+.hidden {
+    display: none !important;
 }
 
 /* Mobile responsive */
 
 @media (max-width: 450px) {
+
     body {
         padding: 18px;
     }
@@ -262,10 +372,18 @@ footer {
     }
 
     .result h2 {
-        font-size: 36px;
+        font-size: 34px;
     }
 
     .details {
         flex-direction: column;
+    }
+
+    .mode-button {
+        font-size: 11px;
+    }
+
+    .package-item {
+        font-size: 12px;
     }
 }
